@@ -53,9 +53,9 @@
   "files": [
     "src",
     "dist",
-    "scripts",
-    "test",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
   ]
 }
