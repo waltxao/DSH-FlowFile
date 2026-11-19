@@ -2,11 +2,13 @@
 
 本项目遵循语义化版本。日期为发布日期。
 
-## 1.0.0 — 2026-11-19
+预发布版以 `-beta.N` 结尾，按 N 递增；稳定版发布前不保证向后兼容。
 
-发布信息：仓库 [waltxao/DSH-FlowFile](https://github.com/waltxao/DSH-FlowFile)，npm 包名 `dsh-flowfile`。
+## 1.0.0-beta.1 — 2026-11-19
 
-首个公开发布版本。
+发布信息：仓库 [waltxao/DSH-FlowFile](https://github.com/waltxao/DSH-FlowFile)，npm 包名 `dsh-flowfile`，分发方式为 GitHub Release 资产。
+
+首个公开的测试版。功能完整、可日常使用，但仍属预发布：接口与本地数据格式（`~/.flowfile/index.db`）在测试版之间可能变动，升级前请备份该目录。
 
 ### 文件管理
 - 本机用户目录、系统盘（`/Applications`、`/Library`、`/opt`、`/usr`）与已挂载 SMB 卷的统一浏览。

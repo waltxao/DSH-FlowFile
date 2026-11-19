@@ -50,6 +50,8 @@ var FD_TAHOE = [
 '.fd-root .sb-brand{display:flex;align-items:center;justify-content:space-between;padding:1px 7px 8px;flex:0 0 auto}',
 '.fd-root .sb-name{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(90deg,#007aff,#6e5ce6 60%,#ff5f7e);-webkit-background-clip:text;background-clip:text;color:transparent}',
 '.fd-root .sb-tag{font-size:9px;font-family:var(--font-mono);padding:2px 5px;border-radius:4px;background:var(--accent-soft);color:var(--accent);font-weight:700}',
+'/* 测试版用警示色，不跟着主色走：主色是「可点/可交互」的信号，用在版本标识上会误导。 */',
+'.fd-root .sb-tag-beta{background:var(--warn-bg);color:var(--warn)}',
 '.fd-root .sb-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:2px;display:flex;flex-direction:column;overscroll-behavior:contain}',
 '.fd-root .sb-group{font-size:10px;font-weight:700;color:var(--ink-400);padding:11px 8px 4px;letter-spacing:.06em;text-transform:uppercase;flex:0 0 auto}',
 '.fd-root .vol-card{padding:6px 8px 7px;border-radius:8px;cursor:default;transition:background .12s;flex:0 0 auto}',
