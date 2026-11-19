@@ -38,6 +38,10 @@
     "timeline"
   ],
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/waltxao/DSH-FlowFile.git"
