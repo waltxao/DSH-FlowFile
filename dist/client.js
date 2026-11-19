@@ -1,4 +1,4 @@
-window.__ModuleLoader__.load({id:"dsh-flowfile",factory:(require)=>{
+window.__ModuleLoader__.load({id:"flowfile",factory:(require)=>{
 const module={exports:{}};const exports=module.exports;
 var React=require("react");
 // FlowFile 第2轮 ② P0 浏览管理：纯逻辑层。
