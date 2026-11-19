@@ -4,6 +4,8 @@
 
 ## 1.0.0 — 2026-11-19
 
+发布信息：仓库 [waltxao/DSH-FlowFile](https://github.com/waltxao/DSH-FlowFile)，npm 包名 `dsh-flowfile`。
+
 首个公开发布版本。
 
 ### 文件管理

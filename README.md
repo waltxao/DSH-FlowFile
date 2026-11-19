@@ -37,10 +37,10 @@
 
 ```bash
 # 从本地目录安装（开发时用 link: 方式，改代码即生效）
-"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop add /path/to/flowfile
+"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop add /path/to/DSH-FlowFile
 
 # 卸载
-"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop remove flowfile
+"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop remove dsh-flowfile
 ```
 
 安装后在左侧工作台列表点 **FlowFile** 即可打开。修改 `src/client-*.js` 之后需要执行 `npm run build` 重新生成 `dist/client.js`；修改 host 侧文件需要触发一次 profile recomposition（`remove` + `add`）。

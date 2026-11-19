@@ -32,7 +32,7 @@ for (const p of esmParts) {
 for (const p of plainParts) body += (await readFile(join(root, p), 'utf8')).trim() + '\n\n'
 
 const bundle = [
-  'window.__ModuleLoader__.load({id:"flowfile",factory:(require)=>{',
+  'window.__ModuleLoader__.load({id:"dsh-flowfile",factory:(require)=>{',
   'const module={exports:{}};const exports=module.exports;',
   'var React=require("react");',
   body,

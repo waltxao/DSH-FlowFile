@@ -1,5 +1,5 @@
 {
-  "name": "flowfile",
+  "name": "dsh-flowfile",
   "version": "1.0.0",
   "description": "FlowFile: DSH 左侧工作台里的 AI 文件管理（本机磁盘 + SMB 挂载卷）。",
   "type": "module",
@@ -40,12 +40,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waltxao/flowfile.git"
+    "url": "git+https://github.com/waltxao/DSH-FlowFile.git"
   },
   "bugs": {
-    "url": "https://github.com/waltxao/flowfile/issues"
+    "url": "https://github.com/waltxao/DSH-FlowFile/issues"
   },
-  "homepage": "https://github.com/waltxao/flowfile#readme",
+  "homepage": "https://github.com/waltxao/DSH-FlowFile#readme",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test test/*.test.js"

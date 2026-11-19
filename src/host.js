@@ -315,7 +315,7 @@ export function requestRejection(ctx, req) {
   return connection.requestRejection({ headers: req.headers })
 }
 
-export const name = 'flowfile'
+export const name = 'dsh-flowfile'
 
 export default {
   inject: ['webServer', 'connection'],

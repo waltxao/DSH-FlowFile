@@ -129,7 +129,7 @@ test('client bundle：__ModuleLoader__ 导出 apply + inject，id=flowfile', asy
   let loaded = null
   const window = { __ModuleLoader__: { load(desc) { loaded = desc } } }
   new Function('window', 'require', src)(window, (name) => { if (name === 'react') return fakeReact; throw new Error('unexpected require: ' + name) })
-  assert.equal(loaded.id, 'flowfile')
+  assert.equal(loaded.id, 'dsh-flowfile')
   const exported = loaded.factory((name) => { if (name === 'react') return fakeReact; throw new Error('unexpected require: ' + name) })
   assert.equal(typeof exported.apply, 'function')
   assert.deepEqual(exported.inject, ['slots'])

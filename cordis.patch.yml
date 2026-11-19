@@ -1,5 +1,4 @@
 # FlowFile bundle patch：同一个包提供 host 半片与浏览器半片
 - insert:
     - id: flowfile
-      name: 'flowfile'
-# recomposition-marker: 1795062276951
+      name: 'dsh-flowfile'
