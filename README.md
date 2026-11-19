@@ -8,6 +8,9 @@
 
 ![FlowFile 浅色](screenshots/light.png)
 
+> 截图为演示数据（`/Volumes/Iris-Data/FlowFile-演示`），并从整屏裁掉了宿主侧栏与文件树。
+> 提交截图前请确认画面里没有用户名、工作区名、会话标题、本地账号文件名与含用户名的绝对路径。
+
 ## 安装
 
 需要 **DeepSeek Harness 桌面版**。插件声明的兼容范围是 `engines.dsh: >=0.2.1-rc.5 <0.3.0`，超出范围宿主会拒绝加载。
