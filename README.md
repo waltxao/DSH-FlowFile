@@ -6,6 +6,63 @@
 
 ![FlowFile 浅色](screenshots/light.png)
 
+## 安装
+
+需要 **DeepSeek Harness 桌面版**。插件声明的兼容范围是 `engines.dsh: >=0.2.1-rc.5 <0.3.0`，超出范围宿主会拒绝加载。
+
+先把 CLI 路径记成变量，后面命令都用它：
+
+```bash
+DSH="/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"
+```
+
+### 方式一：直接从 Release 装（不用先下载）
+
+```bash
+"$DSH" plugin --profile desktop add \
+  https://github.com/waltxao/DSH-FlowFile/releases/download/v1.0.0/dsh-flowfile-1.0.0.tgz
+```
+
+> 仓库为公开状态时这条可直接用。若仓库仍是私有，Release 资产匿名取不到（GitHub 返回 404），请用方式二或方式三。
+
+### 方式二：先下载再装
+
+```bash
+curl -LO https://github.com/waltxao/DSH-FlowFile/releases/download/v1.0.0/dsh-flowfile-1.0.0.tgz
+"$DSH" plugin --profile desktop add ~/Downloads/dsh-flowfile-1.0.0.tgz
+```
+
+包文件装完就可以删掉，插件已解到 profile 里，不依赖这个 tgz 继续存在。
+
+### 方式三：从源码目录装（开发用）
+
+```bash
+git clone https://github.com/waltxao/DSH-FlowFile.git
+"$DSH" plugin --profile desktop add "$PWD/DSH-FlowFile"
+```
+
+这条走 `link:` 软链，改代码即生效，适合自己改。
+
+### 卸载
+
+```bash
+"$DSH" plugin --profile desktop remove dsh-flowfile
+```
+
+### 装完怎么用
+
+左侧工作台列表点 **FlowFile**，主区域打开全幅文件工作台。
+
+### 一个必须避开的坑
+
+**不要用 `pnpm add` 直接往 profile 目录里装。** 这样包会进 `node_modules`，`dsh plugin list` 也列得出来，但 profile 的 `dsh.profile.bundles` 里没有登记它——宿主不会加载，等于装了个死包，而且不会报错，看起来像是插件坏了。
+
+必须走 `dsh plugin add`：它会在 pnpm 装完后把包登记成 profile 的一个 layer。
+
+### 版本与更新
+
+当前提供未发布到 npm registry 的分发形态（Release 资产 + 源码目录）。更换版本时先 `remove` 再 `add` 新版本，宿主才能重新加载新的模块代际。
+
 ## 功能
 
 ### 文件管理
@@ -31,26 +88,14 @@
 ### 工作台内对话
 底部抽屉可以直接对「当前目录 + 选中文件」说话。回复可以是文本、识别卡片或整理计划卡片，计划卡片可逐项勾选后进入执行链。消息落本地 SQLite，刷新后还在。
 
-## 安装
-
-需要 DeepSeek Harness 桌面版（`engines.dsh` 约束 `>=0.2.1-rc.5 <0.3.0`）。
-
-```bash
-# 从本地目录安装（开发时用 link: 方式，改代码即生效）
-"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop add /path/to/DSH-FlowFile
-
-# 卸载
-"/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh" plugin --profile desktop remove dsh-flowfile
-```
-
-安装后在左侧工作台列表点 **FlowFile** 即可打开。修改 `src/client-*.js` 之后需要执行 `npm run build` 重新生成 `dist/client.js`；修改 host 侧文件需要触发一次 profile recomposition（`remove` + `add`）。
-
 ## 开发
 
 ```bash
 npm run build    # 拼装 dist/client.js（无打包器，纯脚本拼接）
 npm test         # node --test test/*.test.js
 ```
+
+改了 `src/client-*.js` 之后必须重新 `npm run build`，否则界面跑的还是旧 bundle；改了 host 侧文件需要 `remove` + `add` 触发一次 profile recomposition 才会重新 import。
 
 客户端是一组纯脚本模块，由 `scripts/build.mjs` 拼进 `window.__ModuleLoader__.load` 包装，React 由宿主模块表提供，不引入构建工具链。
 
