@@ -1,0 +1,61 @@
+{
+  "name": "flowfile",
+  "version": "1.0.0",
+  "description": "FlowFile: DSH 左侧工作台里的 AI 文件管理（本机磁盘 + SMB 挂载卷）。",
+  "type": "module",
+  "main": "src/host.js",
+  "exports": {
+    ".": "./src/host.js",
+    "./client": "./dist/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-modules",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.5 <0.3.0"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "file-manager",
+    "smb",
+    "dedup",
+    "similar",
+    "provenance",
+    "timeline"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waltxao/flowfile.git"
+  },
+  "bugs": {
+    "url": "https://github.com/waltxao/flowfile/issues"
+  },
+  "homepage": "https://github.com/waltxao/flowfile#readme",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.js"
+  },
+  "files": [
+    "src",
+    "dist",
+    "scripts",
+    "test",
+    "cordis.patch.yml",
+    "README.md"
+  ]
+}
