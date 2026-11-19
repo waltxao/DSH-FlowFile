@@ -16,14 +16,12 @@
 DSH="/Applications/DeepSeek Harness.app/Contents/Resources/runtime/cli/bin/dsh"
 ```
 
-### 方式一：直接从 Release 装（不用先下载）
+### 方式一：直接从 Release 装（推荐，不用先下载）
 
 ```bash
 "$DSH" plugin --profile desktop add \
   https://github.com/waltxao/DSH-FlowFile/releases/download/v1.0.0/dsh-flowfile-1.0.0.tgz
 ```
-
-> 仓库为公开状态时这条可直接用。若仓库仍是私有，Release 资产匿名取不到（GitHub 返回 404），请用方式二或方式三。
 
 ### 方式二：先下载再装
 
@@ -61,7 +59,7 @@ git clone https://github.com/waltxao/DSH-FlowFile.git
 
 ### 版本与更新
 
-当前提供未发布到 npm registry 的分发形态（Release 资产 + 源码目录）。更换版本时先 `remove` 再 `add` 新版本，宿主才能重新加载新的模块代际。
+当前通过 GitHub Release 资产分发，尚未发布到 npm registry（`pnpm add dsh-flowfile` 取不到）。更换版本时先 `remove` 再 `add` 新版本，宿主才能重新加载新的模块代际。
 
 ## 功能
 
