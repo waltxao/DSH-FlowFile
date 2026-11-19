@@ -2,9 +2,11 @@
 // 契约照抄 dsh-media-desk/dist/client.js 首尾；React 由宿主模块表提供。
 // 约定：所有 client 源文件不用模板字符串，因此拼接安全。
 //
-// bundle id 与包名不必相同：官方 dsh-media-desk 的包名是 dsh-media-desk，bundle id 是 "media-desk"。
-// 这里刻意保留短标识 "flowfile"——宿主按 id 缓存已加载的模块，把 id 跟着包名一起改，
-// 会让旧缓存实例与新 bundle 用同一个 id 各注册一次，页面直接 white-screen（duplicate factory registration）。
+// bundle 内部 id 必须等于包名：实测官方 dsh-media-desk（包名 dsh-media-desk）bundle id 也是
+// "dsh-media-desk"，dsh-better-sidebar 同样是全名。2026-11-20 冷启动白屏事故的根因就是这里
+// 曾用短标识 "flowfile"：宿主 boot manifest 按包名下发，bundle 却注册了另一个 id，
+// 导致 @deepseek-ai/dsh-client-modules 二次加载时两次注册，报 duplicate factory registration，
+// 侧栏入口消失。热更新时被掩盖，重启才暴露。教训：永远用全名 dsh-flowfile，别信"短名可以"的旧笔记。
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -36,7 +38,7 @@ for (const p of esmParts) {
 for (const p of plainParts) body += (await readFile(join(root, p), 'utf8')).trim() + '\n\n'
 
 const bundle = [
-  'window.__ModuleLoader__.load({id:"flowfile",factory:(require)=>{',
+  'window.__ModuleLoader__.load({id:"dsh-flowfile",factory:(require)=>{',
   'const module={exports:{}};const exports=module.exports;',
   'var React=require("react");',
   body,
