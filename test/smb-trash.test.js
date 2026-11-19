@@ -52,7 +52,7 @@ test('smb-trash：volumeRootOf 只认 /Volumes/<卷>，其余返回 null', () =>
   assert.equal(volumeRootOf('/Volumes/000_文档和书籍/01/x.pdf'), '/Volumes/000_文档和书籍')
   assert.equal(volumeRootOf('/Volumes'), null)
   assert.equal(volumeRootOf('/Volumes/QuickSwap'), null)
-  assert.equal(volumeRootOf('/Users/waltxao/a.txt'), null)
+  assert.equal(volumeRootOf('/Users/demo/a.txt'), null)
   assert.equal(volumeRootOf('relative/a.txt'), null)
 })
 

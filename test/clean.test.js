@@ -11,7 +11,7 @@ import {
   cleanMergeCandidates, cleanStale, cleanCheckMap, cleanSummary
 } from '../src/clean-core.js';
 
-var HOME = '/Users/waltxao';
+var HOME = '/Users/demo';
 var NOW = Date.parse('2026-11-13T12:00:00Z');
 var DAY = 86400000;
 function ns(ms) { return String(BigInt(Math.round(ms)) * 1000000n); }
@@ -35,8 +35,8 @@ test('常量与分类标签：阈值与默认天数按定稿 §6', function () {
 });
 
 test('cleanBase / cleanExt：路径与扩展名', function () {
-  assert.equal(cleanBase('/Users/waltxao/Downloads/a.dmg'), 'a.dmg');
-  assert.equal(cleanExt('/Users/waltxao/Downloads/Setup.PKG'), '.pkg');
+  assert.equal(cleanBase('/Users/demo/Downloads/a.dmg'), 'a.dmg');
+  assert.equal(cleanExt('/Users/demo/Downloads/Setup.PKG'), '.pkg');
   assert.equal(cleanExt('/a/b/noext'), '');
 });
 

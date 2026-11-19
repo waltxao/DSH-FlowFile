@@ -57,7 +57,7 @@ test('filterVolumeNames：真机 7 个条目只留 3 个数据卷', () => {
 })
 
 test('listVolumes：注入真机形态，最终 5 卷且系统卷 0 命中', async () => {
-  const guard = { roots: ['/Users/waltxao', '/Volumes'] }
+  const guard = { roots: ['/Users/demo', '/Volumes'] }
   const r = await listVolumes(guard, { mountOutput: MOUNT, names: NAMES, skipStat: true })
   assert.equal(r.mode, 'flowfile')
   // 第 26 轮：新增「系统盘」卷（path === '/'），本机 + 系统盘 + Iris-Data + 2 SMB = 5 卷

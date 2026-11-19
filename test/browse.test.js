@@ -6,7 +6,7 @@ import * as C from '../src/browse-core.js'
 const E = (name, over) => Object.assign({ path: '/Volumes/QuickSwap/' + name, name, isDir: false,
   size: 100, mtime: '2026-11-13T02:00:00Z', tags: [{ name: '文档', category: 'document' }] }, over || {})
 const VOLS = [
-  { path: '/Users/waltxao', name: '本机', type: 'home', isSmb: false },
+  { path: '/Users/demo', name: '本机', type: 'home', isSmb: false },
   { path: '/Volumes/000_文档和书籍', name: '000_文档和书籍', type: 'smbfs', isSmb: true },
   { path: '/Volumes/QuickSwap', name: 'QuickSwap', type: 'smbfs', isSmb: true }
 ]
@@ -37,7 +37,7 @@ test('历史栈：push/back/forward/分支截断/上限 50/去重', () => {
 })
 
 test('地址栏：绝对路径校验 + 规范化，拒绝 .. 与 ~', () => {
-  assert.equal(C.isSafeAddress('/Users/waltxao/Downloads'), true)
+  assert.equal(C.isSafeAddress('/Users/demo/Downloads'), true)
   assert.equal(C.isSafeAddress('/Users/../etc'), false)
   assert.equal(C.isSafeAddress('~/Downloads'), false)
   assert.equal(C.isSafeAddress('relative'), false)
@@ -57,8 +57,8 @@ test('面包屑：首段映射到卷根，onGo("/") 不再是死按钮', () => {
   assert.equal(t[2].path, '/Volumes/QuickSwap/教程/一')
   assert.equal(t[2].last, true)
   // 根路径本身
-  const r = C.crumbTrail('/Users/waltxao', VOLS)
-  assert.equal(r[0].path, '/Users/waltxao')
+  const r = C.crumbTrail('/Users/demo', VOLS)
+  assert.equal(r[0].path, '/Users/demo')
   assert.equal(r.length, 1)
   // 不匹配任何卷时退化到 "/" 但不生成无效点击
   const any = C.crumbTrail('/etc/hosts', VOLS)

@@ -1,6 +1,6 @@
 // 第 3 轮清理 P0 · 六档真实渲染断言 + 逐档截图（playwright-core + 本机 Chrome headless）。
 // 与第 2 轮 /tmp/ff-vision-render.cjs 同口径，新增第 6 tab / 清理面板断言与清理态截图。
-// NODE_PATH=/Users/waltxao/.dsh/profiles/desktop/node_modules 必须显式给。
+// NODE_PATH=/Users/demo/.dsh/profiles/desktop/node_modules 必须显式给。
 const { chromium } = require('playwright-core');
 const path = require('path');
 const fs = require('fs');
