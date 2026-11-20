@@ -30,12 +30,15 @@ const plainParts = [
   'src/client-clean.js',
   'src/client-app.js'
 ]
+const pkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'))
 let body = ''
 for (const p of esmParts) {
   const src = await readFile(join(root, p), 'utf8')
   body += src.split('\n').map(line => /^export\s/.test(line) ? line.replace(/^export\s+/, '') : line).join('\n').trim() + '\n\n'
 }
 for (const p of plainParts) body += (await readFile(join(root, p), 'utf8')).trim() + '\n\n'
+// 版本注入：badge 的 FF_VERSION 占位符在构建期换成 package.json 的真实版本号（单一事实源）
+body = body.replaceAll('FF_VERSION', JSON.stringify(pkg.version))
 
 const bundle = [
   'window.__ModuleLoader__.load({id:"dsh-flowfile",factory:(require)=>{',

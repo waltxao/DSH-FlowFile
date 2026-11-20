@@ -2,7 +2,7 @@
 
 把「文件管理」做成 DeepSeek Harness 的一项能力：在左侧工作台点开 **FlowFile**，主区域打开一块全幅文件工作台，本机磁盘与已经挂载的 SMB 卷都在同一处浏览，并且可以直接用自然语言下指令。
 
-> **测试版（1.0.0-beta.1）**：功能完整可日常使用，但仍在预发布阶段，接口与数据格式可能变动。遇到问题请到 [Issues](https://github.com/waltxao/DSH-FlowFile/issues) 反馈。
+> **预发布版（1.0.0-beta.2）**：功能完整可日常使用，但仍在预发布阶段，接口与数据格式可能变动。遇到问题请到 [Issues](https://github.com/waltxao/DSH-FlowFile/issues) 反馈。
 
 > 方向是「把文件管理装进 AI」，不是「往文件管理器里塞一个 AI 输入框」。所以它长在对话旁边，而不是另一个独立 App。
 
@@ -66,7 +66,7 @@ git clone https://github.com/waltxao/DSH-FlowFile.git
 
 当前通过 GitHub Release 资产分发，尚未发布到 npm registry（`pnpm add dsh-flowfile` 取不到）。更换版本时先 `remove` 再 `add` 新版本，宿主才能重新加载新的模块代际。
 
-预发布版按 `1.0.0-beta.N` 递增。测试版之间也可能改动数据格式（`~/.flowfile/index.db`），升级前建议备份该目录。
+预发布版按 `1.0.0-beta.N` 递增。预发布版本之间也可能改动数据格式（`~/.flowfile/index.db`），升级前建议备份该目录。
 
 ## 功能
 

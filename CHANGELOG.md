@@ -4,6 +4,16 @@
 
 预发布版以 `-beta.N` 结尾，按 N 递增；稳定版发布前不保证向后兼容。
 
+## 1.0.0-beta.2 — 2026-11-20
+
+发布信息：仓库 [waltxao/DSH-FlowFile](https://github.com/waltxao/DSH-FlowFile)，npm 包名 `dsh-flowfile`，分发方式为 GitHub Release 资产。
+
+界面文案收口：移除侧栏「测试版」标识，版本号改为构建期从 package.json 自动注入（单一事实源，发版后不会显示旧版本）；文档措辞统一为「预发布版」。
+
+### 界面文案
+- 侧栏品牌区版本标识：由写死的「测试版」改为自动注入的当前版本号（如 `1.0.0-beta.2`）。
+- README 与 CHANGELOG 中的「测试版」措辞统一为「预发布版」。
+
 ## 1.0.0-beta.1 — 2026-11-19
 
 发布信息：仓库 [waltxao/DSH-FlowFile](https://github.com/waltxao/DSH-FlowFile)，npm 包名 `dsh-flowfile`，分发方式为 GitHub Release 资产。

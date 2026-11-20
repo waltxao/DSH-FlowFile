@@ -74,9 +74,9 @@ function FF_TSidebar(props) {
   return h('aside', { className: 'sidebar' },
     h('div', { className: 'sb-brand' },
       h('span', { className: 'sb-name' }, 'FlowFile'),
-      // 不写具体版本号：写死的 'v1.0' 会在发版后变成假话。
-      // 但「测试版」是稳定语义——只要还是预发布阶段，这句话就一直成立。
-      h('span', { className: 'sb-tag sb-tag-beta' }, '测试版')),
+      // 版本号由 scripts/build.mjs 在构建期从 package.json 注入（FF_VERSION 占位符），
+      // 不写死具体版本：发版后不会变成假话。
+      h('span', { className: 'sb-tag' }, FF_VERSION)),
     h('div', { className: 'sb-scroll' },
       h('div', { className: 'sb-group' }, '位置'),
       cards.length ? cards : h('div', { className: 'sb-row', style: { color: 'var(--ink-400)', fontSize: 11.5 } }, '读取中…'),

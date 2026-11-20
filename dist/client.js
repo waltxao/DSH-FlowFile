@@ -1395,8 +1395,7 @@ var FD_TAHOE = [
 '.fd-root .sb-brand{display:flex;align-items:center;justify-content:space-between;padding:1px 7px 8px;flex:0 0 auto}',
 '.fd-root .sb-name{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:-.02em;background:linear-gradient(90deg,#007aff,#6e5ce6 60%,#ff5f7e);-webkit-background-clip:text;background-clip:text;color:transparent}',
 '.fd-root .sb-tag{font-size:9px;font-family:var(--font-mono);padding:2px 5px;border-radius:4px;background:var(--accent-soft);color:var(--accent);font-weight:700}',
-'/* 测试版用警示色，不跟着主色走：主色是「可点/可交互」的信号，用在版本标识上会误导。 */',
-'.fd-root .sb-tag-beta{background:var(--warn-bg);color:var(--warn)}',
+
 '.fd-root .sb-scroll{flex:1;min-height:0;overflow-y:auto;padding-right:2px;display:flex;flex-direction:column;overscroll-behavior:contain}',
 '.fd-root .sb-group{font-size:10px;font-weight:700;color:var(--ink-400);padding:11px 8px 4px;letter-spacing:.06em;text-transform:uppercase;flex:0 0 auto}',
 '.fd-root .vol-card{padding:6px 8px 7px;border-radius:8px;cursor:default;transition:background .12s;flex:0 0 auto}',
@@ -3079,9 +3078,9 @@ function FF_TSidebar(props) {
   return h('aside', { className: 'sidebar' },
     h('div', { className: 'sb-brand' },
       h('span', { className: 'sb-name' }, 'FlowFile'),
-      // 不写具体版本号：写死的 'v1.0' 会在发版后变成假话。
-      // 但「测试版」是稳定语义——只要还是预发布阶段，这句话就一直成立。
-      h('span', { className: 'sb-tag sb-tag-beta' }, '测试版')),
+      // 版本号由 scripts/build.mjs 在构建期从 package.json 注入（"1.0.0-beta.2" 占位符），
+      // 不写死具体版本：发版后不会变成假话。
+      h('span', { className: 'sb-tag' }, "1.0.0-beta.2")),
     h('div', { className: 'sb-scroll' },
       h('div', { className: 'sb-group' }, '位置'),
       cards.length ? cards : h('div', { className: 'sb-row', style: { color: 'var(--ink-400)', fontSize: 11.5 } }, '读取中…'),
